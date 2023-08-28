@@ -4,10 +4,12 @@ import WeatherSection from "@/components/WeatherSection"
 export default function Home() {
 	return (
 		<div>
-			<div className="w-full h-screen">
+			<div className="h-[65vh]">
 				<BackgroundVideo />
 			</div>
-			<WeatherSection />
+			<div className="h-[35vh]">
+				<WeatherSection />
+			</div>
 		</div>
 	)
 }

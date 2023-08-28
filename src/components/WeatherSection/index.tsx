@@ -6,7 +6,7 @@ interface indexProps {}
 
 const index: FC<indexProps> = ({}) => {
 	return (
-		<div className="h-[40vh] bg-gradient-to-r from-[#1C2833] to-[#393727] text-white">
+		<div className="h-full bg-gradient-to-r from-[#1C2833] to-[#393727] text-white">
 			<div className="w-full h-full flex overflow-auto snap-mandatory snap-x scroll-smooth items-center">
 				<div className="snap-center">
 					<NowSection />
