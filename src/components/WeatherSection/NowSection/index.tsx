@@ -3,6 +3,8 @@ import PrecipProbComp from "./PrecipProbComp"
 import CurrentTempComp from "./CurrentTempComp"
 import WindSpeedComp from "./WindSpeedComp"
 import AdjustWindowSize from "../AdjustWindowSize"
+import { useSelector } from "react-redux"
+import { RootState } from "@/libs/redux/store"
 
 interface NowSectionProps {}
 

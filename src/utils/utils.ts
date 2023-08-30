@@ -4,3 +4,9 @@ import { twMerge } from "tailwind-merge"
 export function cn(...inputs: ClassValue[]) {
 	return twMerge(clsx(inputs))
 }
+
+export function getCurrentHours() {
+	const currentDate = new Date()
+	let currentTime = currentDate.getHours()
+	return currentTime
+}

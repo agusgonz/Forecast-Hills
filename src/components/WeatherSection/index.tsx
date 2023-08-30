@@ -1,21 +1,25 @@
-import { FC } from "react"
+import { FC, useEffect } from "react"
 import NowSection from "./NowSection"
 import NowSectionMobile from "./NowSection/NowSectionMobile"
+import CoordsComponent from "./CoordsComponent"
 
 interface indexProps {}
 
 const index: FC<indexProps> = ({}) => {
 	return (
-		<div className="h-full bg-gradient-to-r from-[#1C2833] to-[#393727] text-white">
-			<div className="w-full h-full flex overflow-auto snap-mandatory snap-x scroll-smooth items-center">
-				<div className="snap-center">
-					<NowSection />
-				</div>
-				<div className="snap-center md:hidden">
-					<NowSectionMobile />
+		<>
+			<div className="h-full bg-gradient-to-r from-[#1C2833] to-[#393727] text-white">
+				<div className="w-full h-full flex overflow-auto snap-mandatory snap-x scroll-smooth items-center">
+					<div className="snap-center">
+						<NowSection />
+					</div>
+					<div className="snap-center md:hidden">
+						<NowSectionMobile />
+					</div>
 				</div>
 			</div>
-		</div>
+			<CoordsComponent />
+		</>
 	)
 }
 

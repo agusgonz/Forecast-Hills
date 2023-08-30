@@ -5,7 +5,7 @@ import day1 from "../../../public/images/day-1.jpg"
 import day2 from "../../../public/images/day-2.jpg"
 import night1 from "../../../public/images/night-1.jpg"
 import night2 from "../../../public/images/night-2.jpg"
-import { getCurrentHours } from "@/utils/date"
+import { getCurrentHours } from "@/utils/utils"
 
 interface indexProps {}
 
