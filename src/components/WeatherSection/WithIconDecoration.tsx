@@ -18,7 +18,7 @@ const WithIconDecoration: FC<WithIconDecorationProps> = ({
 }) => {
 	return (
 		<div className={cn(className, `flex flex-col gap-2`)}>
-			<div className="flex gap-2">
+			<div className="flex gap-2 justify-center">
 				<div className="self-center">{mainNumber}</div>
 				{withSeparator && (
 					<div className="border-r border-white"></div>

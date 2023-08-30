@@ -2,6 +2,7 @@ import { FC } from "react"
 import WithIconDecoration from "../WithIconDecoration"
 import Image from "next/image"
 import WaterIcon from "../../../../public/weather/water.svg"
+import { useAppSelector } from "@/hooks/redux/useAppSelector"
 
 interface PrecipProbCompProps {
 	hiddeOnMobile?: boolean
@@ -10,6 +11,10 @@ interface PrecipProbCompProps {
 const PrecipProbComp: FC<PrecipProbCompProps> = ({
 	hiddeOnMobile,
 }) => {
+	const weatherData = useAppSelector(
+		state => state.weatherData
+	)
+
 	return (
 		<div
 			className={`${
@@ -20,7 +25,10 @@ const PrecipProbComp: FC<PrecipProbCompProps> = ({
 				withSeparator={false}
 				mainNumber={
 					<div className="text-5xl font-extralight">
-						75<span className="text-xl pl-1">%</span>
+						{weatherData.value != undefined
+							? weatherData.value.current.precip
+							: 75}
+						<span className="text-xl pl-1">%</span>
 					</div>
 				}
 				icon={

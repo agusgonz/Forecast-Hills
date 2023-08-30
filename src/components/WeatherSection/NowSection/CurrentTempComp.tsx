@@ -1,21 +1,25 @@
-"use client"
 import { FC } from "react"
 import WithIconDecoration from "../WithIconDecoration"
 import CloudIcon from "../../../../public/weather/cloudy.svg"
 import Image from "next/image"
-import useGetWeather from "@/hooks/useGetWeather"
+import { useAppSelector } from "@/hooks/redux/useAppSelector"
 
 interface CurrentTempCompProps {}
 
 const CurrentTempComp: FC<CurrentTempCompProps> = () => {
-	const { current } = useGetWeather()
+	const weatherData = useAppSelector(
+		state => state.weatherData
+	)
+
+	console.log(weatherData)
 
 	return (
 		<>
 			<WithIconDecoration
 				mainNumber={
 					<div className="text-7xl font-extralight">
-						{current.currentTemp || "18"}°
+						{weatherData.value?.current.currentTemp || "18"}
+						°
 					</div>
 				}
 				icon={

@@ -2,6 +2,7 @@ import { FC } from "react"
 import WithIconDecoration from "../WithIconDecoration"
 import Image from "next/image"
 import WindIcon from "../../../../public/weather/wind.svg"
+import { useAppSelector } from "@/hooks/redux/useAppSelector"
 
 interface WindSpeedCompProps {
 	hiddeOnMobile?: boolean
@@ -10,6 +11,10 @@ interface WindSpeedCompProps {
 const WindSpeedComp: FC<WindSpeedCompProps> = ({
 	hiddeOnMobile,
 }) => {
+	const weatherData = useAppSelector(
+		state => state.weatherData
+	)
+
 	return (
 		<div
 			className={`${
@@ -20,7 +25,10 @@ const WindSpeedComp: FC<WindSpeedCompProps> = ({
 				withSeparator={false}
 				mainNumber={
 					<div className="text-5xl font-extralight">
-						13<span className="text-xl pl-1">km/h</span>
+						{weatherData.value != undefined
+							? weatherData.value.current.windSpeed
+							: 13}
+						<span className="text-xl pl-1">km/h</span>
 					</div>
 				}
 				icon={

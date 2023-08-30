@@ -1,3 +1,5 @@
+import { WeatherDataType } from "WeatherDataModule"
+
 export async function getWeather(lat: number, lon: number) {
 	const res = await fetch(
 		`/api/fetchWeather?lat=${lat}&lon=${lon}`
@@ -5,12 +7,11 @@ export async function getWeather(lat: number, lon: number) {
 
 	const data = await res.json()
 
-	// return data
 	return {
 		current: parseCurrentWeather(data),
 		daily: parseDailyWeather(data),
 		hourly: parseHourlyWeather(data),
-	}
+	} as WeatherDataType
 }
 
 function parseCurrentWeather({
