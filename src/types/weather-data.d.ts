@@ -5,6 +5,7 @@ declare module "WeatherDataModule" {
 			iconCode: number
 			precip: number
 			windSpeed: number
+			isDay: number
 		}
 		daily: DailyData[]
 		hourly: HourlyData[]

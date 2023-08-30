@@ -22,6 +22,7 @@ function parseCurrentWeather({
 		temperature: currentTemp,
 		windspeed: windSpeed,
 		weathercode: iconCode,
+		isDay,
 	} = current_weather
 	const {
 		precipitation_probability_max: [precip],
@@ -32,6 +33,7 @@ function parseCurrentWeather({
 		windSpeed: Math.round(windSpeed),
 		precip: Math.round(precip * 100) / 100,
 		iconCode,
+		isDay,
 	}
 }
 
