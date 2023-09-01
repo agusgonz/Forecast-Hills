@@ -10,10 +10,10 @@ const openWeatherSectionSlice = createSlice({
 		toggleOpenWeatherSection: state => {
 			state.value = !state.value
 		},
-		closeOpenWeatherSection: state => {
+		closeWeatherSection: state => {
 			state.value = false
 		},
-		openOpenWeatherSection: state => {
+		openWeatherSection: state => {
 			state.value = true
 		},
 	},
@@ -21,7 +21,7 @@ const openWeatherSectionSlice = createSlice({
 
 export const {
 	toggleOpenWeatherSection,
-	closeOpenWeatherSection,
-	openOpenWeatherSection,
+	closeWeatherSection,
+	openWeatherSection,
 } = openWeatherSectionSlice.actions
 export default openWeatherSectionSlice.reducer
