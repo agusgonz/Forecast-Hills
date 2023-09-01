@@ -26,7 +26,7 @@ const index: FC<imageCompProps> = () => {
 		<div className="relative w-full h-full">
 			<Image
 				alt="Mountains"
-				src={image}
+				src={night1}
 				placeholder="blur"
 				quality={100}
 				fill
