@@ -1,24 +1,25 @@
 declare module "WeatherDataModule" {
 	interface WeatherDataType {
-		current: {
-			currentTemp: number
-			iconCode: number
-			precip: number
-			windSpeed: number
-			isDay: number
-		}
+		current: CurrentData
 		daily: DailyData[]
 		hourly: HourlyData[]
 	}
 
+	interface CurrentData {
+		currentTemp: number
+		iconSrc: string
+		precip: number
+		windSpeed: number
+		isDay: number
+	}
 	interface DailyData {
-		iconCode: number
+		iconSrc: string
 		maxTemp: number
 		minTemp: number
 		timestamp: number
 	}
 	interface HourlyData {
-		iconCode: number
+		iconSrc: string
 		precip: number
 		temp: number
 		timestamp: number
