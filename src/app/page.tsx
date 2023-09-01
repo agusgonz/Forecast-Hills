@@ -1,6 +1,6 @@
 "use client"
-import BackgroundVideo from "@/components/BackgroundVideo"
-import WeatherSection from "@/components/WeatherSection"
+import BackgroundVideo from "@/components/BackgroundVideo/BackgroundVideo"
+import WeatherSection from "@/components/WeatherSection/WeatherSection"
 import { useAppDispatch } from "@/hooks/redux/useAppDispatch"
 import { useAppSelector } from "@/hooks/redux/useAppSelector"
 import { toggleOpenWeatherSection } from "@/libs/redux/slices/openWeatherSection"
