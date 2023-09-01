@@ -1,4 +1,10 @@
-import { WeatherDataType } from "WeatherDataModule"
+import {
+	CurrentData,
+	DailyData,
+	HourlyData,
+	WeatherDataType,
+} from "WeatherDataModule"
+import getIcon from "./getIcon"
 
 export async function getWeather(lat: number, lon: number) {
 	const res = await fetch(
@@ -17,7 +23,7 @@ export async function getWeather(lat: number, lon: number) {
 function parseCurrentWeather({
 	current_weather,
 	daily,
-}: any) {
+}: any): CurrentData {
 	const {
 		temperature: currentTemp,
 		windspeed: windSpeed,
@@ -32,16 +38,19 @@ function parseCurrentWeather({
 		currentTemp: Math.round(currentTemp),
 		windSpeed: Math.round(windSpeed),
 		precip: Math.round(precip * 100) / 100,
-		iconCode,
+		iconSrc: getIcon(iconCode),
 		isDay,
 	}
 }
 
-function parseDailyWeather({ daily }: any) {
-	return daily.time.map((time: number, index: number) => {
+function parseDailyWeather({ daily }: any): DailyData[] {
+	// remove first element of the array
+	const dailyTime = daily.time.slice(1)
+
+	return dailyTime.map((time: number, index: number) => {
 		return {
 			timestamp: time * 1000,
-			iconCode: daily.weathercode[index],
+			iconSrc: getIcon(daily.weathercode[index]),
 			maxTemp: Math.round(daily.temperature_2m_max[index]),
 			minTemp: Math.round(daily.temperature_2m_min[index]),
 		}
@@ -51,12 +60,12 @@ function parseDailyWeather({ daily }: any) {
 function parseHourlyWeather({
 	hourly,
 	current_weather,
-}: any) {
+}: any): HourlyData[] {
 	return hourly.time
 		.map((time: number, index: number) => {
 			return {
 				timestamp: time * 1000,
-				iconCode: hourly.weathercode[index],
+				iconSrc: getIcon(hourly.weathercode[index]),
 				temp: Math.round(hourly.temperature_2m[index]),
 				windSpeed: Math.round(hourly.windspeed_10m[index]),
 				precip:
