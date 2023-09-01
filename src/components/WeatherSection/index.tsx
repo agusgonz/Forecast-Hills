@@ -8,6 +8,8 @@ import DailySection from "./DailySection"
 import HourlySection from "./HourlySection"
 import { useAppDispatch } from "@/hooks/redux/useAppDispatch"
 import { useAppSelector } from "@/hooks/redux/useAppSelector"
+import { openWeatherSection } from "@/libs/redux/slices/openWeatherSection"
+import Arrow from "./Arrow"
 
 interface indexProps {}
 
@@ -43,12 +45,21 @@ const index: FC<indexProps> = ({}) => {
 		state => state.openWeatherSection.value
 	)
 
+	const handleSectionOnClick = () => {
+		dispatch(openWeatherSection())
+	}
+
 	return (
-		<>
-			<div className="h-full bg-gradient-to-r from-[#1C2833] to-[#393727] text-white ">
+		<div className="w-full h-full relative">
+			<Arrow />
+			<div
+				onClick={handleSectionOnClick}
+				className="h-full bg-gradient-to-r from-[#1C2833] to-[#393727] text-white "
+			>
 				<div
 					className={`w-full h-full flex flex-col gap-24 pt-16 overflow-auto  scroll-smooth items-center ${
-						!open && "snap-mandatory snap-y overflow-hidden"
+						!open &&
+						"snap-mandatory snap-y overflow-hidden "
 					}`}
 				>
 					<div className="snap-center">
@@ -68,7 +79,7 @@ const index: FC<indexProps> = ({}) => {
 					</div>
 				</div>
 			</div>
-		</>
+		</div>
 	)
 }
 
