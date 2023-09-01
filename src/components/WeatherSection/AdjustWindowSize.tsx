@@ -16,10 +16,13 @@ const AdjustWindowSize: FC<AdjustWindowSizeProps> = ({
 
 	return (
 		<div
-			className={cn(
-				className,
-				`w-[${windowSize.windowWidth}]`
-			)}
+			style={{
+				width: windowSize.windowWidth,
+			}}
+			// className={cn(
+			// 	className,
+			// 	`w-[${windowSize.windowWidth}px]`
+			// )}
 		>
 			{children}
 		</div>

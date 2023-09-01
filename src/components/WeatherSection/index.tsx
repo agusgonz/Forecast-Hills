@@ -1,15 +1,18 @@
 "use client"
 import { FC, useEffect } from "react"
-import NowSection from "./NowSection"
-import NowSectionMobile from "./NowSection/NowSectionMobile"
-import { useDispatch } from "react-redux"
+import CurrentSection from "./CurrentSection"
+import CurrentSectionMobile from "./CurrentSection/CurrentSectionMobile"
 import { getWeather } from "@/utils/services/open-meteo/getWeather"
 import { setWeatherData } from "@/libs/redux/slices/weatherData"
+import DailySection from "./DailySection"
+import HourlySection from "./HourlySection"
+import { useAppDispatch } from "@/hooks/redux/useAppDispatch"
+import { useAppSelector } from "@/hooks/redux/useAppSelector"
 
 interface indexProps {}
 
 const index: FC<indexProps> = ({}) => {
-	const dispatch = useDispatch()
+	const dispatch = useAppDispatch()
 
 	useEffect(() => {
 		navigator.geolocation.getCurrentPosition(
@@ -25,8 +28,8 @@ const index: FC<indexProps> = ({}) => {
 			const data = await getWeather(
 				coords.coords.latitude,
 				coords.coords.longitude
-				)
-				// set weather in the store
+			)
+			// set weather in the store
 			dispatch(setWeatherData(data))
 		}
 
@@ -36,15 +39,32 @@ const index: FC<indexProps> = ({}) => {
 		}
 	}, [])
 
+	const open = useAppSelector(
+		state => state.openWeatherSection.value
+	)
+
 	return (
 		<>
-			<div className="h-full bg-gradient-to-r from-[#1C2833] to-[#393727] text-white">
-				<div className="w-full h-full flex overflow-auto snap-mandatory snap-x scroll-smooth items-center">
+			<div className="h-full bg-gradient-to-r from-[#1C2833] to-[#393727] text-white ">
+				<div
+					className={`w-full h-full flex flex-col gap-24 pt-16 overflow-auto  scroll-smooth items-center ${
+						!open && "snap-mandatory snap-y overflow-hidden"
+					}`}
+				>
 					<div className="snap-center">
-						<NowSection />
+						<CurrentSection />
 					</div>
-					<div className="snap-center md:hidden">
-						<NowSectionMobile />
+					{/* For mobile */}
+					<div className=" md:hidden">
+						<CurrentSectionMobile />
+					</div>
+
+					<div className=" ">
+						<DailySection />
+					</div>
+
+					<div className="">
+						<HourlySection />
 					</div>
 				</div>
 			</div>

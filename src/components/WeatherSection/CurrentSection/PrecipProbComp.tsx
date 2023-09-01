@@ -1,14 +1,14 @@
 import { FC } from "react"
 import WithIconDecoration from "../WithIconDecoration"
 import Image from "next/image"
-import WindIcon from "../../../../public/weather/wind.svg"
+import WaterIcon from "../../../../public/weather/water.svg"
 import { useAppSelector } from "@/hooks/redux/useAppSelector"
 
-interface WindSpeedCompProps {
+interface PrecipProbCompProps {
 	hiddeOnMobile?: boolean
 }
 
-const WindSpeedComp: FC<WindSpeedCompProps> = ({
+const PrecipProbComp: FC<PrecipProbCompProps> = ({
 	hiddeOnMobile,
 }) => {
 	const weatherData = useAppSelector(
@@ -26,23 +26,23 @@ const WindSpeedComp: FC<WindSpeedCompProps> = ({
 				mainNumber={
 					<div className="text-5xl font-extralight">
 						{weatherData.value != undefined
-							? weatherData.value.current.windSpeed
-							: 13}
-						<span className="text-xl pl-1">km/h</span>
+							? weatherData.value.current.precip
+							: "75"}
+						<span className="text-xl pl-1">%</span>
 					</div>
 				}
 				icon={
 					<Image
-						src={WindIcon}
+						src={WaterIcon}
 						alt={""}
 						className="w-[40px] h-[40px]"
 					/>
 				}
 				extraInfo={
-					<p className="text-center">Wind Speed (10m)</p>
+					<p className="text-center">Precipitation Prob</p>
 				}
 			/>
 		</div>
 	)
 }
-export default WindSpeedComp
+export default PrecipProbComp

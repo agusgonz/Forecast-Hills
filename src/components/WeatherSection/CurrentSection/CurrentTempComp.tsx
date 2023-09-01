@@ -18,14 +18,22 @@ const CurrentTempComp: FC<CurrentTempCompProps> = () => {
 			<WithIconDecoration
 				mainNumber={
 					<div className="text-7xl font-extralight">
-						{weatherData.value?.current.currentTemp || "18"}
+						{weatherData.value != undefined
+							? weatherData.value.current.currentTemp
+							: "18"}
 						°
 					</div>
 				}
 				icon={
 					<Image
-						src={CloudIcon}
+						src={
+							weatherData.value != undefined
+								? weatherData.value?.current.iconSrc
+								: CloudIcon
+						}
 						alt={""}
+						width={70}
+						height={70}
 						className="w-[70px] h-[70px]"
 					/>
 				}
@@ -33,10 +41,22 @@ const CurrentTempComp: FC<CurrentTempCompProps> = () => {
 					<div className="text-center flex flex-col gap-1">
 						<div className="flex justify-center gap-2">
 							<div>
-								min: <span className="font-light">10°</span>
+								min:{" "}
+								<span className="font-light">
+									{weatherData.value != undefined
+										? weatherData.value.daily[0].minTemp
+										: "10"}
+									°
+								</span>
 							</div>
 							<div>
-								max: <span className="font-light">32°</span>
+								max:{" "}
+								<span className="font-light">
+									{weatherData.value != undefined
+										? weatherData.value.daily[0].maxTemp
+										: "32"}
+									°
+								</span>
 							</div>
 						</div>
 					</div>
