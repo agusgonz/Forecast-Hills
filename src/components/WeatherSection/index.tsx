@@ -51,30 +51,32 @@ const index: FC<indexProps> = ({}) => {
 
 	return (
 		<div className="w-full h-full relative">
-			<Arrow />
+			{/* <Arrow /> */}
 			<div
 				onClick={handleSectionOnClick}
-				className="h-full bg-gradient-to-r from-[#1C2833] to-[#393727] text-white "
+				className="h-full bg-gradient-to-t from-[#1a468d] to-[#011939] text-white "
 			>
 				<div
-					className={`w-full h-full flex flex-col gap-24 pt-16 overflow-auto  scroll-smooth items-center ${
+					className={`w-full h-full flex flex-col gap-24 py-10 overflow-auto   scroll-smooth items-center ${
 						!open &&
-						"snap-mandatory snap-y overflow-hidden "
+						"snap-mandatory snap-y overflow-hidden justify-center"
 					}`}
 				>
 					<div className="snap-center">
 						<CurrentSection />
 					</div>
 					{/* For mobile */}
-					<div className=" md:hidden">
+					<div
+						className={`${!open && "hidden"} md:hidden `}
+					>
 						<CurrentSectionMobile />
 					</div>
 
-					<div className=" ">
+					<div className={`${!open && "hidden"}`}>
 						<DailySection />
 					</div>
 
-					<div className="">
+					<div className={`${!open && "hidden"} `}>
 						<HourlySection />
 					</div>
 				</div>
