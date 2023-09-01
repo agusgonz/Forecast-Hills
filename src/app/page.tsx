@@ -12,18 +12,21 @@ export default function Home() {
 	)
 
 	return (
-		<div>
+		<div
+			className="relative h-screen bg-black
+		"
+		>
 			<div
 				className={`${
-					open ? "h-[30vh]" : "h-[65vh]"
-				} transition-all`}
+					open ? "h-[30vh]" : "h-[76vh]"
+				} transition-all duration-300`}
 			>
 				<BackgroundVideo />
 			</div>
 			<div
 				className={`${
-					open ? "h-[70vh]" : "h-[35vh]"
-				} transition-all`}
+					open ? "h-[70vh]" : "h-[24vh]"
+				} w-full  min-h-[200px] absolute bottom-0 transition-all duration-300`}
 			>
 				<WeatherSection />
 			</div>
