@@ -12,6 +12,7 @@ import {
 import Arrow from "./Arrow"
 import { X } from "lucide-react"
 import { setLocationData } from "@/libs/redux/slices/locationData"
+import CloseButton from "../CloseButton"
 
 interface WeatherSectionProps {}
 
@@ -39,14 +40,12 @@ const WeatherSection: FC<WeatherSectionProps> = ({}) => {
 			} w-full  min-h-[200px] absolute bottom-0 transition-all duration-300  overflow-hidden`}
 		>
 			<div className="w-full h-full relative text-white ">
-				<button
+				<CloseButton
 					onClick={handleCloseButton}
-					className={`absolute top-0 left-0 p-4 z-10 ${
+					className={`absolute top-0 left-0 z-10 p-4 ${
 						!open && "hidden"
 					}`}
-				>
-					<X />
-				</button>
+				/>
 				<div
 					onClick={handleSectionOnClick}
 					className="h-full bg-gradient-to-b from-[#081332] to-[#440b2f] "
