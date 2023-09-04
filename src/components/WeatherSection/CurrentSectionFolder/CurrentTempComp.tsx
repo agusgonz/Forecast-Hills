@@ -11,8 +11,6 @@ const CurrentTempComp: FC<CurrentTempCompProps> = () => {
 		state => state.weatherData
 	)
 
-	console.log(weatherData)
-
 	return (
 		<>
 			<WithIconDecoration

@@ -26,7 +26,7 @@ const ImageComponent: FC<ImageComponentProps> = () => {
 		<div className="relative w-full h-full">
 			<Image
 				alt="Mountains"
-				src={night1}
+				src={night2}
 				placeholder="blur"
 				quality={100}
 				fill
