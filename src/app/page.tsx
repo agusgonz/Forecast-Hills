@@ -1,5 +1,6 @@
 "use client"
 import BackgroundVideo from "@/components/BackgroundVideo"
+import ChangeBackgroundModal from "@/components/ChangeBackgroundModal"
 import Navbar from "@/components/Navbar"
 import WeatherSection from "@/components/WeatherSection"
 import { useAppDispatch } from "@/hooks/redux/useAppDispatch"
@@ -51,6 +52,7 @@ export default function Home() {
 			<Navbar />
 			<BackgroundVideo />
 			<WeatherSection />
+			<ChangeBackgroundModal />
 		</div>
 	)
 }
