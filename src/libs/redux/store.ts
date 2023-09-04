@@ -1,11 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit"
 import weatherDataReducer from "./slices/weatherData"
 import openWeatherSectionReducer from "./slices/openWeatherSection"
+import locationDataReducer from "./slices/locationData"
 
 export const store = configureStore({
 	reducer: {
 		weatherData: weatherDataReducer,
 		openWeatherSection: openWeatherSectionReducer,
+		locationData: locationDataReducer,
 	},
 })
 
