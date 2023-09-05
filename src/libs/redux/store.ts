@@ -3,6 +3,7 @@ import weatherDataReducer from "./slices/weatherData"
 import openWeatherSectionReducer from "./slices/openWeatherSection"
 import locationDataReducer from "./slices/locationData"
 import isChangeBgModalOpenReducer from "./slices/isChangeBgModalOpen"
+import themeReducer from "./slices/theme"
 
 export const store = configureStore({
 	reducer: {
@@ -10,6 +11,7 @@ export const store = configureStore({
 		openWeatherSection: openWeatherSectionReducer,
 		locationData: locationDataReducer,
 		isChangeBgModalOpen: isChangeBgModalOpenReducer,
+		theme: themeReducer,
 	},
 })
 
