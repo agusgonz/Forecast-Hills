@@ -1,33 +1,33 @@
 "use client"
-import Image, { StaticImageData } from "next/image"
-import React, { useState } from "react"
-import day1 from "../../../public/images/day-1.jpg"
-import day2 from "../../../public/images/day-2.jpg"
-import night1 from "../../../public/images/night-1.jpg"
-import night2 from "../../../public/images/night-2.jpg"
-import { getCurrentHours } from "@/utils/utils"
-
+import Image from "next/image"
+import React, { useEffect, useState } from "react"
 import { FC } from "react"
+import { useAppSelector } from "@/hooks/redux/useAppSelector"
+import lqip from "lqip-modern"
 
 interface ImageComponentProps {}
 
 const ImageComponent: FC<ImageComponentProps> = () => {
-	const [image] = useState(() => {
-		const hour = getCurrentHours()
+	const [base64Image, setBase64Image] = useState("")
 
-		if (hour > 7 && hour < 20) {
-			return day1
-		} else {
-			return night1
-		}
-	})
+	const currentTheme = useAppSelector(
+		state => state.theme.value
+	)
+
+	// useEffect(() => {
+	// 	;(async () => {
+	// 		const res = await lqip(currentTheme.src)
+	// 		setBase64Image(res.metadata.dataURIBase64)
+	// 	})()
+	// }, [currentTheme])
 
 	return (
 		<div className="relative w-full h-full">
 			<Image
 				alt="Mountains"
-				src={night2}
-				placeholder="blur"
+				src={currentTheme.src}
+				// placeholder="blur"
+				// blurDataURL={base64Image}
 				quality={100}
 				fill
 				sizes="100vw"

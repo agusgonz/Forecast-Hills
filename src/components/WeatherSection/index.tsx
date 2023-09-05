@@ -9,9 +9,6 @@ import {
 	openWeatherSection,
 	toggleOpenWeatherSection,
 } from "@/libs/redux/slices/openWeatherSection"
-import Arrow from "./Arrow"
-import { X } from "lucide-react"
-import { setLocationData } from "@/libs/redux/slices/locationData"
 import CloseButton from "../CloseButton"
 
 interface WeatherSectionProps {}
@@ -22,6 +19,8 @@ const WeatherSection: FC<WeatherSectionProps> = ({}) => {
 	const open = useAppSelector(
 		state => state.openWeatherSection.value
 	)
+
+	const currentTheme = useAppSelector(state => state.theme)
 
 	const handleSectionOnClick = () => {
 		dispatch(openWeatherSection())
@@ -48,7 +47,10 @@ const WeatherSection: FC<WeatherSectionProps> = ({}) => {
 				/>
 				<div
 					onClick={handleSectionOnClick}
-					className="h-full bg-gradient-to-b from-[#081332] to-[#440b2f] "
+					className="h-full"
+					style={{
+						background: `linear-gradient(to right, ${currentTheme.value.primaryColor}, ${currentTheme.value.seconaryColor})`,
+					}}
 				>
 					<div
 						className={`w-full h-full flex flex-col gap-24 py-10 overflow-auto relative  scroll-smooth items-center ${
