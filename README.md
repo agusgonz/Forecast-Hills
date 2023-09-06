@@ -1,34 +1,46 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Forecast Hills, a weather app for mountains lovers
 
-## Getting Started
+## Description
 
-First, run the development server:
+Experience simplicity and efficiency with this new weather app. Stay ahead with hourly and weekly temperature forecasts, wind speed details, and precipitation probabilities. Enjoy the flexibility of theme customization for a personalized touch. Your weather updates, just a click away!
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+## Table of Contents
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+1. [Usage](#usage)
+2. [Technologies Used](#technologies-used)
+3. [Contributing](#contributing)
+4. [Installation](#installation)
+5. [License](#license)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Usage
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+This project is a straightforward and quick-to-learn experience. With a single touch on the weather section you can see all the details for future forcast, while enjoying the views of a breathtaking mountain photo. The theme of the app can be changed in the menu options.
 
-## Learn More
+## Technologies Used
 
-To learn more about Next.js, take a look at the following resources:
+This web application use the following technologies:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Frontend**: The frontend of this application is built with [React](https://reactjs.org/), a JavaScript library for building user interfaces. It uses [Next.js](https://nextjs.org/) version 13 as its React framework, which enables features like server-side rendering and generating static websites for React based web applications.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- **TypeScript**: The project is written in [TypeScript](https://www.typescriptlang.org/), a statically typed superset of JavaScript that adds types to the language. TypeScript helps writing safer and more understandable code.
 
-## Deploy on Vercel
+- **API**: It uses [Open-Meteo](https://open-meteo.com/) to get the forecast data. Open-Meteo partners with national weather services to bring you open data with high resolution, ranging from 1 to 11 kilometers. Our powerful APIs intelligently select the most suitable weather models for your specific location, ensuring accurate and reliable forecasts.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Styling**: For styling the application, it uses [Tailwind CSS](https://tailwindcss.com/). Tailwind CSS is a utility-first CSS framework packed with classes like flex, pt-4, text-center, and rotate-90 that can be composed to build any design, directly in your markup. It allows to rapidly build modern websites without ever leaving your HTML. It has a highly customizable configuration which gives you the flexibility to create a unique design of your own. It also offers responsive variants to style your websites on different screen sizes.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Contributing
+
+Contributions to this project are welcome. If you find a bug or think of a new feature, feel free to create an issue or open a pull request. Please ensure that your code follows the existing style to make the review process faster.
+
+## Installation
+
+Follow the steps below to install and run the project:
+
+1. Clone the repository using `git clone https://github.com/agusgonz/Forecast-Hills.git`
+2. Navigate to the project directory using `cd Forecast-Hills`
+3. Install dependencies using `npm install` or `yarn install`
+4. Start the project using `npm start` or `yarn start`
+
+## License
+
+This project is licensed under the MIT License. For more information, please refer to the LICENSE file in the repository.
