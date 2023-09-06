@@ -1,11 +1,13 @@
+"use client"
 import { useAppSelector } from "@/hooks/redux/useAppSelector"
 import { FC } from "react"
-import CloseButton from "./CloseButton"
+import CloseButton from "../CloseButton"
 import { useAppDispatch } from "@/hooks/redux/useAppDispatch"
 import { setChangeBgModalOpen } from "@/libs/redux/slices/isChangeBgModalOpen"
 import { Themes } from "@/utils/const"
 import Image from "next/image"
 import { setTheme } from "@/libs/redux/slices/theme"
+import ThemeItem from "./ThemeItem"
 
 interface ChangeBackgroundModalProps {}
 
@@ -41,29 +43,11 @@ const ChangeBackgroundModal: FC<
 				<div className=" flex gap-4 items-center justify-center flex-wrap">
 					{Themes.map(theme => {
 						return (
-							<div
-								onClick={() => handleChangeTheme(theme)}
+							<ThemeItem
 								key={theme.name}
-								className="flex flex-col justify-center cursor-pointer"
-							>
-								<div className="relative w-36 h-36 md:w-44 md:h-44 lg:w-56 lg:h-56  bg-red-600">
-									<Image
-										src={theme.src}
-										alt={"Background Image"}
-										fill
-										sizes="50vw"
-										style={{
-											objectFit: "cover",
-										}}
-									/>
-								</div>
-								<div
-									className={`h-2`}
-									style={{
-										background: `linear-gradient(to right, ${theme.primaryColor}, ${theme.seconaryColor})`,
-									}}
-								></div>
-							</div>
+								theme={theme}
+								handleChangeTheme={handleChangeTheme}
+							/>
 						)
 					})}
 				</div>

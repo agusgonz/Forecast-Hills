@@ -1,30 +1,19 @@
-"use client"
 import { FC } from "react"
-import dynamic from "next/dynamic"
-import { useAppDispatch } from "@/hooks/redux/useAppDispatch"
-import { closeWeatherSection } from "@/libs/redux/slices/openWeatherSection"
+import ImageComp from "./ImageComponent"
+import lqip from "lqip-modern"
 
-const ImageComp = dynamic(
-	() => import("./ImageComponent"),
-	{
-		ssr: false,
-	}
-)
+// const ImageComp = dynamic(
+// 	() => import("./ImageComponent"),
+// 	{
+// 		ssr: false,
+// 	}
+// )
 
 interface BackgroundVideoProps {}
 
 const BackgroundVideo: FC<BackgroundVideoProps> = ({}) => {
-	const dispatch = useAppDispatch()
-
-	const handleSectionOnClick = () => {
-		dispatch(closeWeatherSection())
-	}
-
 	return (
-		<div
-			onClick={handleSectionOnClick}
-			className="w-full h-full"
-		>
+		<div className="w-full h-full">
 			<ImageComp />
 		</div>
 	)

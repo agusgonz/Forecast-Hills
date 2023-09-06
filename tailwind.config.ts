@@ -29,10 +29,15 @@ module.exports = {
 					},
 					to: { height: 0 },
 				},
+				slideBottomToTop: {
+					"0%": { transform: "translateY(100px)" },
+					"100%": { transform: "translateY(0px)" },
+				},
 			},
 			animation: {
 				"accordion-down": "accordion-down 0.2s ease-out",
 				"accordion-up": "accordion-up 0.2s ease-out",
+				"slide-arrow": "slideBottomToTop 0.2s linear",
 			},
 		},
 	},

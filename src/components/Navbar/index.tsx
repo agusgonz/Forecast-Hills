@@ -1,5 +1,4 @@
 import { useAppSelector } from "@/hooks/redux/useAppSelector"
-import { MoreVertical } from "lucide-react"
 import { FC } from "react"
 import DropDownMenu from "./DropDownMenu"
 
@@ -11,10 +10,10 @@ const Navbar: FC<NavbarProps> = ({}) => {
 	)
 
 	return (
-		<div className="w-full absolute z-10 text-white p-4">
+		<div className="w-full absolute z-10 text-white p-4 bg-gradient-to-b from-[#00000062] to-[#ffffff00]">
 			<div className="relative h-8 flex justify-center items-center">
 				{location ? (
-					<div className="flex gap-2 justify-center">
+					<div className="flex gap-2 justify-center text-lg">
 						<p>{location.city}, </p>
 						<p>{location.state}</p>
 					</div>

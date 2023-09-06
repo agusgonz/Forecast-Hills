@@ -6,7 +6,7 @@ import {
 	DropdownMenuItem,
 } from "@radix-ui/react-dropdown-menu"
 import { FC, useState } from "react"
-import { MoreVertical } from "lucide-react"
+import { AlignJustify, MoreVertical } from "lucide-react"
 import LinkWithIcon from "./LinkWithIcon"
 import { useAppDispatch } from "@/hooks/redux/useAppDispatch"
 import { setChangeBgModalOpen } from "@/libs/redux/slices/isChangeBgModalOpen"
@@ -25,7 +25,8 @@ const DropDownMenu: FC<DropDownMenuProps> = ({}) => {
 			<DropdownMenu>
 				<DropdownMenuTrigger asChild>
 					<button>
-						<MoreVertical className="w-8 h-8" />
+						{/* <MoreVertical  /> */}
+						<AlignJustify className="w-8 h-8" />
 					</button>
 				</DropdownMenuTrigger>
 				<DropdownMenuContent className="font-light text-end p-3 m-2 bg-black/70 rounded-md">
