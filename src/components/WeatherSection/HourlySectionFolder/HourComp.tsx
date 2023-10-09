@@ -41,7 +41,7 @@ const HourComp: FC<HourCompProps> = ({
 					</div>
 				}
 				extraInfo={
-					<div className="flex flex-col gap-1 text-sm">
+					<div className="flex flex-col gap-1 text-[12px] font-light">
 						<p>{precProb}% prec prob</p>
 						<p>{windSpeed} km/h wind</p>
 					</div>
