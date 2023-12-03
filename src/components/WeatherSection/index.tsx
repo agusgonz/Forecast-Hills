@@ -54,9 +54,9 @@ const WeatherSection: FC<WeatherSectionProps> = ({}) => {
 						!open && "hidden"
 					}`}
 				/>
-				<div
+				<button
 					onClick={handleOpenSection}
-					className="h-full"
+					className="h-full w-full"
 					style={{
 						background: `linear-gradient(to right, ${currentTheme.value.primaryColor}, ${currentTheme.value.seconaryColor})`,
 					}}
@@ -88,7 +88,7 @@ const WeatherSection: FC<WeatherSectionProps> = ({}) => {
 							<HourlySection />
 						</div>
 					</div>
-				</div>
+				</button>
 			</div>
 		</div>
 	)
