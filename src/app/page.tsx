@@ -46,8 +46,11 @@ export default function Home() {
 
 	return (
 		<div
-			className="relative h-screen
+			className="relative 
 		"
+			style={{
+				height: "100dvh",
+			}}
 		>
 			<Navbar />
 			<BackgroundVideo />
